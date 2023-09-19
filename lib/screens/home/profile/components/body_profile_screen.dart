@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:local_app/screens/home/profile/components/form_profile_screen.dart';
 
 class BodyProfile extends StatefulWidget {
+  const BodyProfile({super.key});
+
   @override
   State<BodyProfile> createState() => _BodyProfileState();
 }
@@ -31,23 +33,18 @@ class _BodyProfileState extends State<BodyProfile> {
             child: Column(
               children: [
                 Center(
-                  child: CircleAvatar(
-                    backgroundImage: image == null ? null : 
-                    FileImage(
-                      File(image!.path)
-                    ),
-                    radius: 70,
-                    backgroundColor: Colors.transparent,
-                  )
-                ),
+                    child: CircleAvatar(
+                  backgroundImage:
+                      image == null ? null : FileImage(File(image!.path)),
+                  radius: 70,
+                  backgroundColor: Colors.transparent,
+                )),
                 Center(
                   child: TextButton(
                     child: Text(
                       "edit photo",
                       style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.w500
-                      ),
+                          color: Colors.red, fontWeight: FontWeight.w500),
                     ),
                     onPressed: () async {
                       await getImage();

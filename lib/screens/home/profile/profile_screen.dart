@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:local_app/screens/home/profile/components/body_profile_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
@@ -14,22 +15,19 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         leading: Padding(
           padding: EdgeInsets.only(left: 20),
-          child: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: (){}),
         ),
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            fontWeight: FontWeight.w900
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: IconButton(icon: Icon(Icons.edit), color: Colors.red, onPressed: (){}),
-          ),
-        ],
+        title: Text('Profile'),
       ),
-      body: BodyProfile(),
+      body: SafeArea(
+        child: SizedBox(
+          child: Padding(
+            padding: EdgeInsets.only(left: 30, right: 30),
+            child: SingleChildScrollView(
+              child: Text('testtt profile'),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
